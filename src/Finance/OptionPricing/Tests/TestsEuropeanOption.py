@@ -1,9 +1,20 @@
-from OptionPricing.EuropeanOption import EuropeanOption
+import numpy as np
 import unittest
+
+from OptionPricing.EuropeanOption import EuropeanOption
+from OptionPricing.OptionStyle import OptionStyle
 
 
 class TestsEuropeanOption(unittest.TestCase):
-    def test_basic_black_scholes(self):
-        option = EuropeanOption(50, 52, 0.1, 0.4, 5/12)
-        print(f"European option price {option.black_scholes_price()}")
+    def test_basic_call_black_scholes(self):
+        option = EuropeanOption(50, 52, 0.1, 0.4, 5/12, OptionStyle.CALL)
         self.assertAlmostEqual(option.black_scholes_price(), 5.1911, 4)
+
+    def test_basic_put_black_scholes(self):
+        option = EuropeanOption(50, 52, 0.1, 0.4, 5/12, OptionStyle.PUT)
+        self.assertAlmostEqual(option.black_scholes_price(), 5.0689, 4)
+
+    def test_monte_carlo_call_pricing(self):
+        option = EuropeanOption(50, 52, 0.1, 0.4, 5/12, OptionStyle.CALL)
+        [price, stddev] = option.monte_carlo_price(1000, 5/12)
+        self.assertTrue(5.1911 - 2*stddev < price < 5.1911 + 2*stddev)
