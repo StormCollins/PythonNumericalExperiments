@@ -14,6 +14,8 @@ class GBM:
         self.simulation_count = simulation_count
         self.paths = []
 
+    # time steps can be tricky if T/dt is not a round number
+    # TODO: use linspace instead
     def generate_paths(self):
         self.paths = np.zeros([self.simulation_count, self.time_step_count + 1])
         self.paths[:, 0] = self.S0
@@ -30,3 +32,6 @@ class GBM:
         sns.set_palette(sns.cubehelix_palette(self.simulation_count, start=.5, rot=-.75))
         plt.plot(t, sorted_paths)
         plt.show()
+
+    def get_time_steps(self):
+        return np.linspace(0, self.T, self.time_step_count)

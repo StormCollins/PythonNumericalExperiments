@@ -1,8 +1,10 @@
-import numpy as np
 import unittest
 
 from OptionPricing.EuropeanOption import EuropeanOption
 from OptionPricing.OptionStyle import OptionStyle
+
+# European option price example taken from :
+# Numerical Methods in Finance & Economics by Paolo Brandimarte pg 113
 
 
 class TestsEuropeanOption(unittest.TestCase):

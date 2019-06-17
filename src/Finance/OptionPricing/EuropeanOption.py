@@ -5,7 +5,6 @@ from OptionPricing.OptionStyle import OptionStyle
 from StochasticProcesses.GBM import GBM
 
 
-# assume a call for now
 class EuropeanOption:
     def __init__(self, initial_value, strike, drift, volatility, T, option_style):
         self.S0 = initial_value
@@ -24,6 +23,8 @@ class EuropeanOption:
         else:
             return -self.S0 * norm.cdf(-d1) + self.K * np.exp(-self.mu * self.T) * norm.cdf(-d2)
 
+    # time_step_size should be irrelevant for a European option
+    # TODO: Currently only prices call option
     def monte_carlo_price(self, simulation_count, time_step_size):
         gbm = GBM(self.S0, self.mu, self.sigma, time_step_size, self.T, simulation_count)
         gbm.generate_paths()
