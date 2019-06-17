@@ -1,6 +1,8 @@
 import numpy as np
-from StochasticProcesses.GBM import GBM
+
 from OptionPricing.OptionStyle import OptionStyle
+from StochasticProcesses.GBM import GBM
+
 
 class AsianOption:
     # assuming averaging period lasts till maturity
@@ -14,10 +16,12 @@ class AsianOption:
         self.option_style = option_style
 
     def monte_carlo_price(self, simulation_count, time_step_size):
-        gbm = GBM(self.S0, self.mu, self.sigma, time_step_size, self.T, simulation_count)
+        gbm = GBM(self.S0, self.mu, self.sigma, self.T, time_step_size, simulation_count)
         gbm.generate_paths()
         time_steps = gbm.get_time_steps()
         T_avg_start_index = np.where(time_steps >= self.T_avg_start)[0][0]
+        if T_avg_start_index == 0:
+            T_avg_start_index = 1
         prices = np.mean(gbm.paths[:, T_avg_start_index:], 1)
         if self.option_style is OptionStyle.CALL:
             prices = np.exp(-self.mu*self.T)*np.maximum(prices - self.K, 0)

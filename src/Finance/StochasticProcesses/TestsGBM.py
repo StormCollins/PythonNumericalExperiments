@@ -14,7 +14,7 @@ class GBM_Tests(unittest.TestCase):
         dt = 0.1
         T = 1
         simulation_count = 1
-        sp = GBM(S0, mu, sigma, dt, T, simulation_count)
+        sp = GBM(S0, mu, sigma, T, dt, simulation_count)
         sp.generate_paths()
         # print(f"Final value was {sp.paths[0, -1]:.2f}")
         self.assertAlmostEqual(sp.paths[0, -1], 110.52, 2)
@@ -26,7 +26,7 @@ class GBM_Tests(unittest.TestCase):
         dt = 0.1
         T = 1
         simulation_count = 100
-        sp = GBM(S0, mu, sigma, dt, T, simulation_count)
+        sp = GBM(S0, mu, sigma, T, dt, simulation_count)
         sp.generate_paths()
         # print(f"Final value was {sp.paths[0, -1]:.2f}")
         stddev = 100*(np.exp(sigma**2) - 1)

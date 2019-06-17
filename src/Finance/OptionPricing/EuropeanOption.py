@@ -26,7 +26,7 @@ class EuropeanOption:
     # time_step_size should be irrelevant for a European option
     # TODO: Currently only prices call option
     def monte_carlo_price(self, simulation_count, time_step_size):
-        gbm = GBM(self.S0, self.mu, self.sigma, time_step_size, self.T, simulation_count)
+        gbm = GBM(self.S0, self.mu, self.sigma, self.T, time_step_size, simulation_count)
         gbm.generate_paths()
         prices = np.exp(-self.mu * self.T) \
                * np.maximum(gbm.paths[:, -1] - self.K, 0)

@@ -4,7 +4,7 @@ import seaborn as sns
 
 
 class GBM:
-    def __init__(self, initial_value, drift, volatility, dt, T, simulation_count):
+    def __init__(self, initial_value, drift, volatility, T, dt, simulation_count):
         self.S0 = initial_value
         self.mu = drift
         self.sigma = volatility
