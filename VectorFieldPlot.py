@@ -73,10 +73,10 @@ for c1 in [-c, c]:
         i += 1
 
 
-y0 = [0.01, 0.01]
-t = np.linspace(0, 5, 1000)
-ys = odeint(calculate_derivatives, y0, t, args=(matrix,), color=tableau20[10])
-ax.plot(ys[:, 0], ys[:, 1], 'b-')
+# y0 = [0.01, 0.01]
+# t = np.linspace(0, 5, 1000)
+# ys = odeint(calculate_derivatives, y0, t, args=(matrix,), color=tableau20[10])
+# ax.plot(ys[:, 0], ys[:, 1], 'b-')
 
 plt.xlabel('$x$', fontsize=14)
 plt.ylabel('$y$', fontsize=14)

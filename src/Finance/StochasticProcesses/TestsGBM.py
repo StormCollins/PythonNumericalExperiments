@@ -1,6 +1,6 @@
 import numpy as np
 import unittest
-from StochasticProcesses.GBM import GBM
+from src.Finance.StochasticProcesses.GBM import GBM
 
 
 class GBM_Tests(unittest.TestCase):
