@@ -12,7 +12,9 @@ from OptionPricing.OptionStyle import OptionStyle
 # TODO: asian volatility should be lower than European
 # Asian option price is sensitive to the number of sample points.
 # As you increase the number of sample points the price seems to decrease
-# as you're including more points at inception
+# as you're including more points at inception... this seems dubious
+# Geometric Asian options are cheaper than Arithmetic ones because
+# the geometric mean is less than the arithmetic mean.
 class TestsAsianOption(unittest.TestCase):
     def test_monte_carlo_call_pricing_with_short_tenor(self):
         option = AsianOption(50, 50, 0.1, 0.4, 5/12, 0, OptionStyle.CALL)
