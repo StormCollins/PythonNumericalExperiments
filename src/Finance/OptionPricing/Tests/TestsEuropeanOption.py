@@ -21,3 +21,8 @@ class TestsEuropeanOption(unittest.TestCase):
         option = EuropeanOption(50, 52, 0.1, 0.4, 5 / 12, OptionStyle.CALL)
         [price, stddev] = option.monte_carlo_price(1000, 5/12)
         self.assertTrue(5.1911 - 2*stddev < price < 5.1911 + 2*stddev)
+
+    def test_monte_carlo_put_pricing(self):
+        option = EuropeanOption(50, 52, 0.1, 0.4, 5 / 12, OptionStyle.PUT)
+        [price, stddev] = option.monte_carlo_price(1000, 5/12)
+        self.assertTrue(5.0689 - 2*stddev < price < 5.0689 + 2*stddev)
