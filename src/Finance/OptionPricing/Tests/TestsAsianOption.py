@@ -1,7 +1,7 @@
 import unittest
 
-from OptionPricing.AsianOption import AsianOption
-from OptionPricing.OptionStyle import OptionStyle
+from src.Finance.OptionPricing.AsianOption import *
+from src.Finance.OptionPricing.OptionStyle import *
 
 
 # Asian option pricing examples taken from :

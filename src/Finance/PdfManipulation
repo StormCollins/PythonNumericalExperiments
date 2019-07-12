@@ -1,0 +1,4 @@
+from tika import parser
+
+raw = parser.from_file('C:\\Users\\stcollins\\Desktop\\SFIL Non FEC derivatives 30 June 2019 banks.pdf')
+print(raw['content'])
