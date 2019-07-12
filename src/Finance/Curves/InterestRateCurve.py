@@ -1,5 +1,7 @@
 import numpy as np
 
+from src.Finance.Curves.RateConvention import RateConvention
+
 class InterestRateCurve:
     def __init__(self, tenors, discount_factors):
         self.tenors = tenors
