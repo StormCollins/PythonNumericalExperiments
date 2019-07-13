@@ -1,4 +1,6 @@
+import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 
 from src.Finance.Curves.RateConvention import RateConvention
 
@@ -52,4 +54,10 @@ class InterestRateCurve:
         else:
             return "Invalid rate convention"
 
-# TODO: Add function to plot curve
+    def plot_curve(self, values_to_plot='discount_factors'):
+        if values_to_plot.lower() == 'discount_factors':
+            plt.plot(self.tenors, self.discount_factors)
+        elif values_to_plot.lower() == 'rates':
+            plt.plot(self.tenors, self.rates)
+        plt.show()
+

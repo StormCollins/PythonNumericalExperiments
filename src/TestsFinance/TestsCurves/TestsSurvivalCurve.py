@@ -24,3 +24,10 @@ class SurvivalCurve_Tests(unittest.TestCase):
         np.testing.assert_array_almost_equal(
             survival_curve.get_probabilities_of_default([0.75]),
             expected_survival_probabilities, 2)
+
+    def test_plot_curve(self):
+        survival_curve\
+            = SurvivalCurve(np.array([0.00, 0.48, 0.99, 1.98, 2.98, 3.98, 4.98, 6.99, 9.99]),
+                            np.array([0.000, 0.0160, 0.0228, 0.0507, 0.0456, 0.0454, 0.0462, 0.0878, 0.1144]),
+                            recovery_rate=0.4)
+        survival_curve.plot_curve()

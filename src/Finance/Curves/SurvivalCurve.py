@@ -1,4 +1,6 @@
+import matplotlib.pyplot as plt
 import numpy as np
+
 
 class SurvivalCurve:
     def __init__(self, tenors, probabilities_of_default, recovery_rate):
@@ -17,4 +19,9 @@ class SurvivalCurve:
     def get_hazard_rate(self, interpolation_tenors):
         pd = self.get_probability_of_default(interpolation_tenors)
         return -np.log(pd) / interpolation_tenors
+
+    def plot_curve(self, values_to_plot='probabilities_of_default'):
+        if values_to_plot.lower() == 'probabilities_of_default':
+            plt.plot(self.tenors, self.probabilities_of_default)
+        plt.show()
 
