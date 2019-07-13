@@ -6,3 +6,4 @@ class RateConvention(Enum):
     NACM = 2
     NACQ = 3
     NACS = 4
+    NACA = 5
