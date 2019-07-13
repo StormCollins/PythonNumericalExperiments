@@ -20,7 +20,7 @@ class Forward:
         else:
             return self.strike - self.initial_value * np.exp(self.drift * self.tenor)
 
-    def monte_carlo_price(self, time_step_size, simulation_count, return_price_paths):
+    def monte_carlo_price(self, time_step_size, simulation_count, return_price_paths=False):
         gbm = GBM(self.S0, self.mu, self.sigma, self.T, time_step_size, simulation_count)
         gbm.generate_paths()
         if self.long_short == LongShort.LONG:
