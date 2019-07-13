@@ -33,22 +33,22 @@ class InterestRateCurve:
         discount_factors = self.get_discount_factors(tenors)
         if rate_convention == RateConvention.NACC:
             return -np.log(discount_factors) / tenors
+        elif rate_convention == RateConvention.NACM:
+            # df = (1 + r/12)^12t
+            # r = 12*[df^(-1/12t) - 1]
+            return 12 * (discount_factors ** (-1 / (12 * tenors)) - 1)
+        elif rate_convention == RateConvention.NACQ:
+            # df = (1 + r/4)^4t
+            # r = 4*[df^(-1/4t) - 1]
+            return 4 * (discount_factors ** (-1 / (4 * tenors)) - 1)
         elif rate_convention == RateConvention.NACS:
-            # df = (1 + r/2)^(2t)
+            # df = (1 + r/2)^2t
             # r = 2*[df^(-1/2t) - 1]
             return 2 * (discount_factors ** (-1 / (2 * tenors)) - 1)
-        elif rate_convention == RateConvention.NACM:
-            # df = (1 + r/2)^(2t)
-            # r = 2*[df^(-1/2t) - 1]
-            return 12 * (discount_factors ** (-1 / (12 * tenors)) - 1)
         elif rate_convention == RateConvention.NACA:
-            # df = (1 + r/2)^(2t)
-            # r = 2*[df^(-1/2t) - 1]
+            # df = (1 + r)^t
+            # r = 2*[df^(-1/t) - 1]
             return discount_factors ** (-1 / tenors) - 1
-        elif rate_convention == RateConvention.NACQ:
-            # df = (1 + r/2)^(2t)
-            # r = 2*[df^(-1/2t) - 1]
-            return 4 * (discount_factors ** (-1 / (4 * tenors)) - 1)
         else:
             return "Invalid rate convention"
 
