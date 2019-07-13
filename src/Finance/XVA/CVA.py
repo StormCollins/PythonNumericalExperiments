@@ -1,7 +1,8 @@
-from src.Finance.Curves.SurvivalCurve import SurvivalCurve
-from src.Finance.Curves.InterestRateCurve import InterestRateCurve
-
 import numpy as np
+
+from src.Finance.Curves.InterestRateCurve import InterestRateCurve
+from src.Finance.Curves.SurvivalCurve import SurvivalCurve
+
 
 class CVA:
     def __init__(self, interest_rate_curve: InterestRateCurve, survival_curve: SurvivalCurve):

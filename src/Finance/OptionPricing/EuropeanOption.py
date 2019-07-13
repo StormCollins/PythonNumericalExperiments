@@ -24,7 +24,7 @@ class EuropeanOption:
             return -self.S0 * norm.cdf(-d1) + self.K * np.exp(-self.mu * self.T) * norm.cdf(-d2)
 
     # time_step_size should be irrelevant for a European option
-    def monte_carlo_price(self, simulation_count, time_step_size, return_prices_paths = False):
+    def monte_carlo_price(self, simulation_count, time_step_size, return_prices_paths=False):
         gbm = GBM(self.S0, self.mu, self.sigma, self.T, time_step_size, simulation_count)
         gbm.generate_paths()
         if self.option_style == OptionStyle.CALL:
