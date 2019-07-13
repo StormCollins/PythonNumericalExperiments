@@ -51,4 +51,3 @@ class AsianOption:
             result += np.exp(meanS[i - 1] + (self.mu - meanG)*covSG[i - 1] / varG
                              + (varS[i - 1] - covSG[i - 1]**2 / varG) / 2)
         return result
-jn

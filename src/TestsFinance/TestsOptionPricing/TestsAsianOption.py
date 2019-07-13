@@ -19,9 +19,9 @@ class TestsAsianOption(unittest.TestCase):
     def test_monte_carlo_call_pricing_with_short_tenor(self):
         option = AsianOption(50, 50, 0.1, 0.4, 5/12, 0, OptionStyle.CALL)
         [price, stddev] = option.monte_carlo_price(10000, 5/(12*5))
-        self.assertTrue(3.9605 - 2*stddev < price < 3.9605 + 2*stddev)
+        self.assertTrue(3.9605 - 3*stddev < price < 3.9605 + 3*stddev)
 
     def test_monte_carlo_call_pricing_with_long_tenor(self):
         option = AsianOption(50, 50, 0.1, 0.4, 2, 0, OptionStyle.CALL)
         [price, stddev] = option.monte_carlo_price(10000, 5/(12*24))
-        self.assertTrue(8.3424 - 2*stddev < price < 8.3424 + 2*stddev)
+        self.assertTrue(8.3424 - 3*stddev < price < 8.3424 + 3*stddev)
