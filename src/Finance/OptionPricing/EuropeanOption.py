@@ -3,7 +3,7 @@ from scipy.stats import norm
 
 from src.Finance.OptionPricing.OptionStyle import OptionStyle
 from src.Finance.StochasticProcesses.GBM import GBM
-from src.Finance.Curves.SurvivalCurve import SurvivalCurve
+
 
 class EuropeanOption:
     def __init__(self, initial_value, strike, drift, volatility, T, option_style):
