@@ -18,9 +18,10 @@ class TestsCVA(unittest.TestCase):
         fx1YVol = 0.1545
         fx2YVol = 0.1675
         T = 1.482192
+        #T = 1.5
         european_option\
             = EuropeanOption(fxSpot, strike, r, fx1YVol, T, OptionStyle.CALL)
-        [tenors, price_paths] = european_option.monte_carlo_price(5, 0.5, True)
+        [tenors, price_paths] = european_option.monte_carlo_price(1000, 0.5, True)
 
         rates_tenors = np.array(
             [0.0, 0.01, 0.08, 0.26, 0.51, 0.76, 1.01, 1.26, 1.50, 1.75, 2.01, 3.00,

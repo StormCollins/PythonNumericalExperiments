@@ -43,13 +43,3 @@ class EuropeanOption:
             stddev = np.std(prices)/np.sqrt(simulation_count)
             return [price, stddev]
 
-    def monte_carlo_price_with_cva(self, simulation_count, time_step_size, survival_curve, recovery_rate):
-        gbm = GBM(self.S0, self.mu, self.sigma, self.T, time_step_size, simulation_count)
-        gbm.generate_paths()
-        prices = np.exp(-self.mu * self.T) \
-               * np.maximum(gbm.paths[:, -1] - self.K, 0)
-        time_steps = gbm.get_time_steps()
-        hazard_rates = survival_curve.get_hazard_rates
-        price = np.mean(prices)
-        stddev = np.std(prices)/np.sqrt(simulation_count)
-        return [price, stddev]
