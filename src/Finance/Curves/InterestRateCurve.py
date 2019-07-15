@@ -54,6 +54,13 @@ class InterestRateCurve:
         else:
             return "Invalid rate convention"
 
+    # assumes NACC rates for now
+    def get_forward_rates(self, start_tenors, end_tenors):
+        start_discount_factors = self.get_discount_factors(start_tenors)
+        end_discount_factors = self.get_discount_factors(end_tenors)
+        t = end_tenors - start_tenors
+        return (1/t)*np.log(start_discount_factors/end_discount_factors)
+
     def plot_curve(self, values_to_plot='discount_factors'):
         if values_to_plot.lower() == 'discount_factors':
             plt.plot(self.tenors, self.discount_factors)
