@@ -7,21 +7,21 @@
     - [ ] Illustrate field lines for electrostatic charges
    
 ## Fractals
-1. Mandelbrot set
-2. Julia set
-3. Logistic map
-4. Sierpinski Triangle
-5. Barnsley Fern
+- [ ] Mandelbrot set
+- [ ] Julia set
+- [ ] Logistic map
+- [ ] Sierpinski Triangle
+- [ ] Barnsley Fern
 
 ## Geometry
-1. Illustrate conic sections as segments of cone
-2. Appolonius spheres
-3. Plot parametric curve
-4. Plot parametric surface
+- [ ] Illustrate conic sections as segments of cone
+- [ ] Appolonius spheres
+- [ ] Plot parametric curve
+- [ ] Plot parametric surface
 
 ## Graph Theory
-- [] Dijkstra's Algorithm
+- [ ] Dijkstra's Algorithm
 
 ## Stochastic Processes
-1. Simulate GBM on a sphere
+- [ ] Simulate GBM on a sphere
 
