@@ -1,10 +1,10 @@
 # To Do
 
 ## Differential Equations
+- [ ] Solve heat equation
 - [ ] Solve wave equation
-2. Solve heat equation
-3. Solve elliptic equation
-    1. Illustrate field lines for electrostatic charges
+- [ ] Solve elliptic equation
+    - [ ] Illustrate field lines for electrostatic charges
    
 ## Fractals
 1. Mandelbrot set
