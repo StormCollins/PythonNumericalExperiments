@@ -1,7 +1,7 @@
 # To Do
 
 ## Differential Equations
-1. Solve wave equation
+- [ ] Solve wave equation
 2. Solve heat equation
 3. Solve elliptic equation
     1. Illustrate field lines for electrostatic charges
